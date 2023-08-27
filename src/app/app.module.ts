@@ -14,13 +14,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { CourseModule } from './course/course.module';
+import { HomeComponent } from './home/home.component';
 
 registerLocaleData(en);
 registerLocaleData(th);
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
