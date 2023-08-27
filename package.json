@@ -4,13 +4,14 @@
   "scripts": {
     "ng": "ng",
     "start": "nx serve",
-    "build": "nx build",
+    "build-dev": "nx build",
     "watch": "nx build --watch --configuration development",
     "test": "nx test",
     "dev:ssr": "nx run ijudge-ng:serve-ssr",
     "serve:ssr": "node dist/ijudge-ng/server/main.js",
     "build:ssr": "nx build && nx run ijudge-ng:server",
-    "prerender": "nx run ijudge-ng:prerender"
+    "prerender": "nx run ijudge-ng:prerender",
+    "vercel-build": "yarn build:ssr"
   },
   "private": true,
   "dependencies": {
