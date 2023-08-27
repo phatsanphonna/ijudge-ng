@@ -1,0 +1,7 @@
+
+{
+    "/api": {
+      "target": "https://ijudge-api.iservkmitl.tech/api",
+      "secure": false
+    }
+  }

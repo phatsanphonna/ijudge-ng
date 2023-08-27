@@ -8,8 +8,10 @@ import { NzCardModule } from 'ng-zorro-antd/card'
 import { NzTypographyModule } from 'ng-zorro-antd/typography';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzSpaceModule } from 'ng-zorro-antd/space';
+import { AuthService } from './auth.service';
+import { HttpClientModule } from '@angular/common/http';
 
-const nzModule = [
+const nzModules = [
   NzIconModule,
   NzInputModule,
   NzButtonModule,
@@ -18,20 +20,26 @@ const nzModule = [
   NzFormModule,
   NzSpaceModule
 ]
+const sharedServices = [
+  AuthService
+]
 
 @NgModule({
+  providers: [sharedServices],
   declarations: [],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    nzModule
+    HttpClientModule,
+    nzModules
   ],
   exports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    nzModule
+    HttpClientModule,
+    nzModules,
   ]
 })
 export class CoreModule { }

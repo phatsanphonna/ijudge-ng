@@ -7,7 +7,7 @@
     <form nz-form [formGroup]="credentials" (submit)="submitForm()" class="w-3/5 mx-auto">
       <nz-form-item>
         <nz-form-control nzErrorTip="Please input your username!">
-          <nz-form-label [nzSpan]="6" nzFor="username" class="text-left">Username</nz-form-label>
+          <nz-form-label nzFor="username" class="text-left">Username</nz-form-label>
           <nz-input-group nzPrefixIcon="user">
             <input formControlName="username" nz-input id="username" placeholder="Username" />
           </nz-input-group>
@@ -16,7 +16,7 @@
 
       <nz-form-item>
         <nz-form-control nzErrorTip="Please input your password!">
-          <nz-form-label [nzSpan]="6" nzFor="password" class="text-left">Password</nz-form-label>
+          <nz-form-label nzFor="password" class="text-left">Password</nz-form-label>
           <nz-input-group nzPrefixIcon="lock">
             <input formControlName="password" type="password" id='password' nz-input placeholder="Password" />
           </nz-input-group>
