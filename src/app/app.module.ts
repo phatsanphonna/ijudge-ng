@@ -12,6 +12,8 @@ import { NZ_I18N, en_US, th_TH } from 'ng-zorro-antd/i18n';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { CourseModule } from './course/course.module';
 
 registerLocaleData(en);
 registerLocaleData(th);
@@ -22,12 +24,14 @@ registerLocaleData(th);
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     NzIconModule,
-    NzButtonModule
+    NzInputModule,
+    NzButtonModule,
+    CourseModule,
+    AppRoutingModule,
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },
