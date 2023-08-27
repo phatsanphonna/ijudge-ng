@@ -10,6 +10,7 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzSpaceModule } from 'ng-zorro-antd/space';
 import { AuthService } from './auth.service';
 import { HttpClientModule } from '@angular/common/http';
+import { LOCAL_STORAGE, getLocalStorage } from '../injectors/local-storage.injector';
 
 const nzModules = [
   NzIconModule,
@@ -20,12 +21,11 @@ const nzModules = [
   NzFormModule,
   NzSpaceModule
 ]
-const sharedServices = [
-  AuthService
-]
 
 @NgModule({
-  providers: [sharedServices],
+  providers: [
+    { provide: LOCAL_STORAGE, useFactory: getLocalStorage }
+  ],
   declarations: [],
   imports: [
     CommonModule,

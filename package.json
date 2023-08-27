@@ -7,7 +7,7 @@
     "build-dev": "nx build",
     "watch": "nx build --watch --configuration development",
     "test": "nx test",
-    "dev:ssr": "nx run ijudge-ng:serve-ssr",
+    "dev:ssr": "nx run ijudge-ng:serve-ssr --proxy-config proxy.config.json",
     "serve:ssr": "node dist/ijudge-ng/server/main.js",
     "build:ssr": "nx build && nx run ijudge-ng:server",
     "prerender": "nx run ijudge-ng:prerender",

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/auth.service';
 
 @Component({
@@ -15,13 +16,15 @@ export class LoginComponent {
     password: new FormControl('', [Validators.required])
   })
 
-  constructor(private readonly authService: AuthService) { }
+  constructor(private readonly authService: AuthService, private readonly router: Router) { }
 
   submitForm() {
     if (this.credentials.valid) {
       this.authService.login({
         username: this.credentials.value.username!,
         password: this.credentials.value.password!
+      }).add(() => {
+        this.router.navigateByUrl('/')
       })
     } else {
       Object.values(this.credentials.controls).forEach(control => {
