@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CourseRoutingModule } from './course-routing.module';
-import { CourseHomeComponent } from './course-home/course-home.component';
+import { CourseHomeComponent } from './pages/course-home/course-home.component';
 
 
 @NgModule({

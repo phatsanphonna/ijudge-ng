@@ -1,0 +1,33 @@
+<main
+  class="min-w-screen min-h-screen bg-gradient-radial from-claret-400 via-claret-200 to-white grid place-items-center">
+  <nz-card class="bg-claret-100 rounded-lg w-4/5 md:w-2/5 ring-none" [nzBorderless]="true">
+    <h1 nz-typography class="font-mono text-center">{{ title }}</h1>
+    <p nz-typography class="text-center">ระบบคอร์สเรียนเชิงตรวจสอบอัลกอริทึมภาษาคอมพิวเตอร์</p>
+
+    <form nz-form [formGroup]="credentials" (submit)="submitForm()" class="w-3/5 mx-auto">
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please input your username!">
+          <nz-form-label [nzSpan]="6" nzFor="username" class="text-left">Username</nz-form-label>
+          <nz-input-group nzPrefixIcon="user">
+            <input formControlName="username" nz-input id="username" placeholder="Username" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please input your password!">
+          <nz-form-label [nzSpan]="6" nzFor="password" class="text-left">Password</nz-form-label>
+          <nz-input-group nzPrefixIcon="lock">
+            <input formControlName="password" type="password" id='password' nz-input placeholder="Password" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-control>
+          <button nz-button nzType="primary" class="bg-claret-600 w-full" type="submit">Log me in!</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </nz-card>
+</main>

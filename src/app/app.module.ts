@@ -5,14 +5,12 @@ import { registerLocaleData } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import en from '@angular/common/locales/en';
 import th from '@angular/common/locales/th';
-import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NZ_I18N, en_US, th_TH } from 'ng-zorro-antd/i18n';
-import { NzIconModule } from 'ng-zorro-antd/icon';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NzInputModule } from 'ng-zorro-antd/input';
+import { AuthModule } from './auth/auth.module';
+import { CoreModule } from './core/core.module';
 import { CourseModule } from './course/course.module';
 import { HomeComponent } from './home/home.component';
 
@@ -26,13 +24,11 @@ registerLocaleData(th);
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NzIconModule,
-    NzInputModule,
-    NzButtonModule,
+    CoreModule,
     CourseModule,
+    AuthModule,
     AppRoutingModule,
   ],
   providers: [
