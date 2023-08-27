@@ -1,17 +1,18 @@
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzInputModule } from 'ng-zorro-antd/input';
-import { NzCardModule } from 'ng-zorro-antd/card'
-import { NzTypographyModule } from 'ng-zorro-antd/typography';
-import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzSpaceModule } from 'ng-zorro-antd/space';
-import { AuthService } from './auth.service';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { LOCAL_STORAGE, getLocalStorage } from '../injectors/local-storage.injector';
-import { LoadingHttpInterceptor } from './http.interceptor';
+import { NzTypographyModule } from 'ng-zorro-antd/typography';
+import {
+  LOCAL_STORAGE,
+  getLocalStorage,
+} from '../injectors/local-storage.injector';
 
 const nzModules = [
   NzIconModule,
@@ -20,20 +21,18 @@ const nzModules = [
   NzCardModule,
   NzTypographyModule,
   NzFormModule,
-  NzSpaceModule
-]
+  NzSpaceModule,
+];
 
 @NgModule({
-  providers: [
-    { provide: LOCAL_STORAGE, useFactory: getLocalStorage },
-  ],
+  providers: [{ provide: LOCAL_STORAGE, useFactory: getLocalStorage }],
   declarations: [],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    nzModules
+    nzModules,
   ],
   exports: [
     CommonModule,
@@ -41,6 +40,6 @@ const nzModules = [
     ReactiveFormsModule,
     HttpClientModule,
     nzModules,
-  ]
+  ],
 })
-export class CoreModule { }
+export class CoreModule {}

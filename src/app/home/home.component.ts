@@ -5,13 +5,13 @@ import { LoadingService } from '../core/loading.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: []
+  styleUrls: [],
 })
 export class HomeComponent {
   constructor(
     private readonly authService: AuthService,
-    public readonly loading: LoadingService
-  ) { }
+    public readonly loading: LoadingService,
+  ) {}
 
-  myInfo$ = this.authService.getMyInfo()
+  myInfo$ = this.authService.getMyInfo();
 }

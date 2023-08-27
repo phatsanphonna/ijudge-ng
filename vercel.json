@@ -1,13 +1,11 @@
 {
-    "version": 2,
-    "public": true,
-    "name": "ijudge-universal",
-    "rewrites": [
-      { "source": "/(.*)", "destination": "/api" }
-    ],
-    "functions": {
-      "api/index.js": {
-        "includeFiles": "dist/ijudge-ng/browser/**"
-      }
+  "version": 2,
+  "public": true,
+  "name": "ijudge-ng",
+  "rewrites": [{ "source": "/(.*)", "destination": "/api" }],
+  "functions": {
+    "api/index.js": {
+      "includeFiles": "dist/ijudge-ng/browser/**"
     }
   }
+}

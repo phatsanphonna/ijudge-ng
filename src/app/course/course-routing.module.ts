@@ -4,12 +4,13 @@ import { CourseHomeComponent } from './pages/course-home/course-home.component';
 
 export const routes: Routes = [
   {
-    path: 'courses', component: CourseHomeComponent
-  }
+    path: 'courses',
+    component: CourseHomeComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class CourseRoutingModule { }
+export class CourseRoutingModule {}

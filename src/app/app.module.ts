@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import {
+  BrowserModule,
+  provideClientHydration,
+} from '@angular/platform-browser';
 
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
@@ -19,10 +22,7 @@ registerLocaleData(en);
 registerLocaleData(th);
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent
-  ],
+  declarations: [AppComponent, HomeComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -37,10 +37,10 @@ registerLocaleData(th);
     {
       provide: HTTP_INTERCEPTORS,
       useClass: LoadingHttpInterceptor,
-      multi: true
+      multi: true,
     },
-    provideClientHydration()
+    provideClientHydration(),
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

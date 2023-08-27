@@ -12,9 +12,7 @@
         "outputPath": "dist/ijudge-ng/browser",
         "index": "src/index.html",
         "main": "src/main.ts",
-        "polyfills": [
-          "zone.js"
-        ],
+        "polyfills": ["zone.js"],
         "tsConfig": "tsconfig.app.json",
         "assets": [
           "src/favicon.ico",
@@ -25,14 +23,12 @@
             "output": "/assets/"
           }
         ],
-        "styles": [
-          "src/theme.less",
-          "src/styles.css"
-        ],
+        "styles": ["src/theme.less", "src/styles.css"],
         "scripts": []
       },
       "configurations": {
         "production": {
+          "progress": true,
           "budgets": [
             {
               "type": "initial",
@@ -57,20 +53,18 @@
         }
       },
       "defaultConfiguration": "production",
-      "outputs": [
-        "{options.outputPath}"
-      ]
+      "outputs": ["{options.outputPath}"]
     },
     "serve": {
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
           "browserTarget": "ijudge-ng:build:production",
-          "proxyConfig": "proxy.config.json"
+          "proxyConfig": "./proxy.config.json"
         },
         "development": {
           "browserTarget": "ijudge-ng:build:development",
-          "proxyConfig": "proxy.config.json"
+          "proxyConfig": "./proxy.config.json"
         }
       },
       "defaultConfiguration": "development"
@@ -84,18 +78,10 @@
     "test": {
       "executor": "@angular-devkit/build-angular:karma",
       "options": {
-        "polyfills": [
-          "zone.js",
-          "zone.js/testing"
-        ],
+        "polyfills": ["zone.js", "zone.js/testing"],
         "tsConfig": "tsconfig.spec.json",
-        "assets": [
-          "src/favicon.ico",
-          "src/assets"
-        ],
-        "styles": [
-          "src/styles.css"
-        ],
+        "assets": ["src/favicon.ico", "src/assets"],
+        "styles": ["src/styles.css"],
         "scripts": []
       }
     },
@@ -108,7 +94,8 @@
       },
       "configurations": {
         "production": {
-          "outputHashing": "media"
+          "outputHashing": "media",
+          "progress": true
         },
         "development": {
           "buildOptimizer": false,
@@ -119,9 +106,7 @@
         }
       },
       "defaultConfiguration": "production",
-      "outputs": [
-        "{options.outputPath}"
-      ]
+      "outputs": ["{options.outputPath}"]
     },
     "serve-ssr": {
       "executor": "@nguniversal/builders:ssr-dev-server",
@@ -140,9 +125,7 @@
     "prerender": {
       "executor": "@nguniversal/builders:prerender",
       "options": {
-        "routes": [
-          "/"
-        ]
+        "routes": ["/"]
       },
       "configurations": {
         "production": {
