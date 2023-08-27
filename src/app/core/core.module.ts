@@ -9,8 +9,9 @@ import { NzTypographyModule } from 'ng-zorro-antd/typography';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzSpaceModule } from 'ng-zorro-antd/space';
 import { AuthService } from './auth.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LOCAL_STORAGE, getLocalStorage } from '../injectors/local-storage.injector';
+import { LoadingHttpInterceptor } from './http.interceptor';
 
 const nzModules = [
   NzIconModule,
@@ -24,7 +25,7 @@ const nzModules = [
 
 @NgModule({
   providers: [
-    { provide: LOCAL_STORAGE, useFactory: getLocalStorage }
+    { provide: LOCAL_STORAGE, useFactory: getLocalStorage },
   ],
   declarations: [],
   imports: [

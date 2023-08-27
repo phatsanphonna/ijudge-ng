@@ -6,7 +6,7 @@ import { AuthService } from 'src/app/core/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: []
 })
 export class LoginComponent {
   readonly title = '<i>Judge'

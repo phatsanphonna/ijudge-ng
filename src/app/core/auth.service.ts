@@ -1,7 +1,7 @@
 import { isPlatformServer } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
-import { map } from 'rxjs';
+import { map, tap } from 'rxjs';
 import { LOCAL_STORAGE, LocalStorage } from '../injectors/local-storage.injector';
 
 interface ICredential {
@@ -17,6 +17,7 @@ export interface IGetMyInfo {
 
 export interface User {
   user_id: number
+  username: string
   user_status: string
   is_active: number
   role_name: string
@@ -66,10 +67,19 @@ export class AuthService {
   getMyInfo() {
     if (isPlatformServer(this.platform)) return
 
-    return this.http.get<IGetMyInfo>('/api/auth/me', {
+    return this.http.get<{ data: IGetMyInfo }>('/api/auth/me', {
       headers: {
         'Authorization': `Bearer ${this.getToken()}`
       }
     })
+      .pipe(
+        map(({ data: { users, enroll_course, has_permission } }) => {
+          return {
+            user: users[0],
+            enroll_course,
+            has_permission
+          }
+        }),
+      )
   }
 }
