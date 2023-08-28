@@ -14,9 +14,11 @@ import {
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzSpaceModule } from 'ng-zorro-antd/space';
 import { NzTypographyModule } from 'ng-zorro-antd/typography';
 import {
@@ -44,6 +46,8 @@ const nzModules = [
   NzFormModule,
   NzSpaceModule,
   NzLayoutModule,
+  NzMessageModule,
+  NzGridModule
 ];
 
 @NgModule({
@@ -67,4 +71,4 @@ const nzModules = [
     LayoutComponent,
   ],
 })
-export class CoreModule {}
+export class CoreModule { }

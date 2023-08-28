@@ -1,0 +1,42 @@
+<main class="p-4">
+  <h2 nz-typography>Donut</h2>
+
+  <div class="flex lg:inline-flex flex-col lg:flex-row gap-4 w-full">
+    <div class="w-full lg:w-4/5">
+      <nz-card nzBorderless="true" nzTitle="Description" [nzLoading]="isLoading$ | async">
+        <p>Card content</p>
+        <p>Card content</p>
+        <p>Card content</p>
+      </nz-card>
+    </div>
+
+    <div class="flex flex-col gap-4 w-full lg:w-1/5">
+      <nz-card nzBorderless="true" nzTitle="Information" [nzLoading]="isLoading$ | async">
+        <div class="w-full grid grid-cols-2">
+          <p class="text-left font-medium">Time Limit</p>
+          <pre class="text-left">1 Second</pre>
+
+          <p class="text-left font-medium">Memory Limit</p>
+          <pre class="text-left">32 MB</pre>
+
+          <p class="text-left font-medium">Deadline</p>
+          <pre class="text-left">Future Life</pre>
+
+          <p class="text-left font-medium">Testcase</p>
+          <pre class="text-left">5 case</pre>
+
+          <p class="text-left font-medium">Full Score</p>
+          <pre class="text-left">100 Points</pre>
+
+
+          <p class="text-left font-medium">Bonus Score</p>
+          <pre class="text-left">900 Points</pre>
+        </div>
+      </nz-card>
+
+      <nz-card nzBorderless="true" nzTitle="Submit File" [nzLoading]="isLoading$ | async">
+        <input type="file" nz-input />
+      </nz-card>
+    </div>
+  </div>
+</main>

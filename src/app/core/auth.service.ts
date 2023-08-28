@@ -41,7 +41,7 @@ export class AuthService {
     private readonly http: HttpClient,
     @Inject(LOCAL_STORAGE) private readonly localStorage: LocalStorage,
     @Inject(PLATFORM_ID) private readonly platform: Object,
-  ) {}
+  ) { }
 
   private _myInfo$ = new BehaviorSubject<MyInfo | null>(null);
 

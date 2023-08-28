@@ -31,7 +31,7 @@ export class LoginComponent {
           password: this.credentials.value.password!,
         })
         .subscribe(() => {
-          this.router.navigateByUrl('/');
+          this.router.navigateByUrl('/courses');
         });
     } else {
       Object.values(this.credentials.controls).forEach((control) => {

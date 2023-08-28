@@ -4,7 +4,7 @@
   </nz-sider>
   <nz-layout>
     <core-navbar (visibleMenu)="toggleMenu($event)"></core-navbar>
-    <nz-content class="bg-claret-100 min-h-[calc(100vh-2.5rem)]">
+    <nz-content class="bg-claret-100 min-h-[calc(100vh-2.5rem)]" [ngClass]="togglePadding ? 'p-4' : ''">
       <ng-content></ng-content>
     </nz-content>
   </nz-layout>

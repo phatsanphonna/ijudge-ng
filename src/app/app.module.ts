@@ -17,6 +17,8 @@ import { CourseModule } from './course/course.module';
 import { HomeComponent } from './home/home.component';
 import { LoadingHttpInterceptor } from './core/http.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { APIInterceptor } from './injectors/api.injector';
+import { ProblemModule } from './problem/problem.module';
 
 registerLocaleData(en);
 registerLocaleData(th);
@@ -28,6 +30,7 @@ registerLocaleData(th);
     BrowserAnimationsModule,
     CoreModule,
     CourseModule,
+    ProblemModule,
     AuthModule,
     AppRoutingModule,
   ],
@@ -37,6 +40,11 @@ registerLocaleData(th);
     {
       provide: HTTP_INTERCEPTORS,
       useClass: LoadingHttpInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: APIInterceptor,
       multi: true,
     },
     provideClientHydration(),
