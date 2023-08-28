@@ -1,5 +1,13 @@
-<p>home works!</p>
-<a [routerLink]="['login']">To login page</a>
-<pre *ngIf="myInfo$ | async as myInfo">
-    {{ myInfo.user.username }}
-</pre>
+<div class="w-full h-[calc(100vh-2.5rem)]">
+  <div
+    class="h-1/2 w-full flex flex-col justify-center items-center gap-2 font-mono"
+  >
+    <h1 class="text-4xl text-claret-600 font-bold">{{ projectTitle }}</h1>
+    <p>Online Grader (Version Project)</p>
+
+    <a routerLink="/courses">
+      <button nz-button nzType="primary">Enter Course</button>
+    </a>
+  </div>
+  <div class="h-1/2 bg-claret-200"></div>
+</div>

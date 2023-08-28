@@ -28,6 +28,12 @@
       },
       "configurations": {
         "production": {
+          "fileReplacements": [
+            {
+              "replace": "src/environments/environment.ts",
+              "with": "src/environments/environment.prod.ts"
+            }
+          ],
           "progress": true,
           "budgets": [
             {
@@ -138,6 +144,12 @@
         }
       },
       "defaultConfiguration": "production"
+    },
+    "collect-vars": {
+      "executor": "ng-process-env:collectVars",
+      "options": {
+        "environmentFile": "src/environments/environment.onprem.ts"
+      }
     }
   }
 }

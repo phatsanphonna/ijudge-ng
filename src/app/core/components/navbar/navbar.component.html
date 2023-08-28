@@ -1,0 +1,41 @@
+<nz-header
+  class="h-10 w-full bg-white flex flex-row justify-between items-center p-2 px-4 leading-none"
+>
+  <div>
+    <span nz-icon nzType="menu" nzTheme="outline" (click)="toggleMenu()"></span>
+  </div>
+
+  <div class="font-mono inline-flex justify-center items-center gap-4">
+    <div
+      *ngIf="auth.myInfo$ | async as myInfo"
+      class="inline-flex justify-center items-center gap-2"
+    >
+      <span *ngIf="myInfo" class="relative w-auto h-auto p-0">{{
+        myInfo.user.username
+      }}</span>
+      <span nz-icon nzType="down" nzTheme="outline"></span>
+    </div>
+
+    <span
+      nz-icon
+      nzType="loading"
+      nzTheme="outline"
+      *ngIf="loadingService.visible | async"
+    ></span>
+
+    <span nz-icon nzType="bell" nzTheme="outline"></span>
+    <span
+      nz-icon
+      nzType="logout"
+      nzTheme="outline"
+      *ngIf="auth.myInfo$ | async; else logoutIcon"
+      (click)="handleLogout()"
+      class="w-5"
+    ></span>
+    <ng-template #logoutIcon>
+      <a [routerLink]="['login']">
+        <span nz-icon nzType="login" nzTheme="outline"></span>
+      </a>
+    </ng-template>
+  </div>
+</nz-header>

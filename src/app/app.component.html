@@ -1,1 +1,7 @@
-<router-outlet></router-outlet>
+<core-layout *ngIf="!loginRoute; else nonLogin">
+  <router-outlet></router-outlet>
+</core-layout>
+
+<ng-template #nonLogin>
+  <router-outlet></router-outlet>
+</ng-template>

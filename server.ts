@@ -7,7 +7,6 @@ import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { AppServerModule } from './src/main.server';
 import { enableProdMode } from '@angular/core';
-import { createProxyMiddleware } from 'http-proxy-middleware';
 
 enableProdMode();
 

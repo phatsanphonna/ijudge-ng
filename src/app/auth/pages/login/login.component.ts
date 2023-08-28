@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/auth.service';
+import { LoadingService } from 'src/app/core/loading.service';
 
 @Component({
   selector: 'app-login',
@@ -18,6 +19,7 @@ export class LoginComponent {
 
   constructor(
     private readonly authService: AuthService,
+    public readonly loadingService: LoadingService,
     private readonly router: Router,
   ) {}
 
@@ -28,7 +30,7 @@ export class LoginComponent {
           username: this.credentials.value.username!,
           password: this.credentials.value.password!,
         })
-        .add(() => {
+        .subscribe(() => {
           this.router.navigateByUrl('/');
         });
     } else {

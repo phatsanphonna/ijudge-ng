@@ -1,7 +1,7 @@
 import { isPlatformServer } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
-import { map, tap } from 'rxjs';
+import { BehaviorSubject, Observable, concatMap, map, tap } from 'rxjs';
 import {
   LOCAL_STORAGE,
   LocalStorage,
@@ -14,6 +14,12 @@ interface ICredential {
 
 export interface IGetMyInfo {
   users: User[];
+  has_permission: any[];
+  enroll_course: any[];
+}
+
+interface MyInfo {
+  user: User;
   has_permission: any[];
   enroll_course: any[];
 }
@@ -37,6 +43,11 @@ export class AuthService {
     @Inject(PLATFORM_ID) private readonly platform: Object,
   ) {}
 
+  private _myInfo$ = new BehaviorSubject<MyInfo | null>(null);
+
+  get myInfo$() {
+    return this._myInfo$.asObservable();
+  }
   private setToken(token: string) {
     this.localStorage.setItem('token', token);
   }
@@ -52,28 +63,41 @@ export class AuthService {
   login(credential: ICredential) {
     return this.http
       .put<{ message: string; token: string }>('/api/auth/login', credential)
-      .pipe(map(({ token }) => token))
-      .subscribe((token) => {
-        this.setToken(token);
-      });
+      .pipe(
+        map(({ token }) => token),
+        tap((token) => this.setToken(token)),
+      )
+      .pipe(concatMap((token) => this.getMyInfo(token)!));
   }
 
   logout() {
     return this.http
-      .put<string>('/api/auth/logout', {})
-      .subscribe()
-      .add(() => {
-        this.removeToken();
-      });
+      .put<string>(
+        '/api/auth/logout',
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${this.getToken()}`,
+          },
+        },
+      )
+      .pipe(
+        tap(() => {
+          this.removeToken();
+          this._myInfo$.next(null);
+        }),
+      );
   }
 
-  getMyInfo() {
+  getMyInfo(
+    token: string | null = this.getToken(),
+  ): Observable<MyInfo> | undefined {
     if (isPlatformServer(this.platform)) return;
 
     return this.http
       .get<{ data: IGetMyInfo }>('/api/auth/me', {
         headers: {
-          Authorization: `Bearer ${this.getToken()}`,
+          Authorization: `Bearer ${token}`,
         },
       })
       .pipe(
@@ -84,6 +108,7 @@ export class AuthService {
             has_permission,
           };
         }),
+        tap((myInfo) => this._myInfo$.next(myInfo)),
       );
   }
 }

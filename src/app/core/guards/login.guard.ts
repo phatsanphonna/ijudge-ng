@@ -7,9 +7,5 @@ export const loginGuard: CanActivateFn = () => {
   const authService = inject(AuthService);
   const platform = inject(PLATFORM_ID);
 
-  if (isPlatformBrowser(platform) && authService.getToken()) {
-    return false;
-  } else {
-    return true;
-  }
+  return !(isPlatformBrowser(platform) && authService.getToken() !== null);
 };

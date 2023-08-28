@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../core/auth.service';
+import { Component } from '@angular/core';
 import { LoadingService } from '../core/loading.service';
 
 @Component({
@@ -8,10 +7,7 @@ import { LoadingService } from '../core/loading.service';
   styleUrls: [],
 })
 export class HomeComponent {
-  constructor(
-    private readonly authService: AuthService,
-    public readonly loading: LoadingService,
-  ) {}
+  constructor(public readonly loading: LoadingService) {}
 
-  myInfo$ = this.authService.getMyInfo();
+  readonly projectTitle = '<i>Judge';
 }
